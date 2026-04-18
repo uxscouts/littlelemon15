@@ -13,7 +13,10 @@ function BookingForm({ availableTimes, dispatch }) {
         setResdate(date);
     };
 
-
+    const handleTimeChange = (e) =>{
+      const time = e.target.value;
+      setTime(time);
+    }
 
   // Access the context
   const { user, updateBooking } = useUser();
@@ -96,8 +99,8 @@ function BookingForm({ availableTimes, dispatch }) {
                 required 
             />
 
-            <label htmlFor="restime">Choose time</label>
-            <select id="restime" required>
+            <label htmlFor="time">Choose time</label>
+            <select id="time" onChange={handleTimeChange} required>
                 {availableTimes.map((time) => (
                     <option 
                       key={time} 
